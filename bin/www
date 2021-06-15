@@ -102,23 +102,23 @@ io.on("connection", (socket) => {
   socket.on("ouaa", ({ msg }) => {
     //  console.log(JSON.stringify(socket));
     console.log(msg + " from " + socket.id);
-    io.emit("beep",{msg:"PIPIP"});
+    socket.emit("beep",{msg:"PIPIP"});
   });
 
   setTimeout(() => {
-    io.emit("message", { msg: "Wow Connected "+ socket.id });
+    socket.emit("message", { msg: "Wow Connected "+ socket.id });
   }, 1000);
 
   setTimeout(() => {
-    io.emit("message", { msg: "Step1 "+ socket.id });
+    socket.emit("message", { msg: "Step1 "+ socket.id });
   }, 5000);
 
   setTimeout(() => {
-    io.emit("message", { msg: "Step2 "+ socket.id });
+    socket.emit("message", { msg: "Step2 "+ socket.id });
   }, 9000);
 
   setTimeout(() => {
-    io.emit("message", { msg: "Done "+ socket.id });
+    socket.emit("message", { msg: "Done "+ socket.id });
   }, 13000);
 
   io.emit("connectedCount", { nbr: ++nbr });
